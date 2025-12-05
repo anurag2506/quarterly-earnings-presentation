@@ -80,6 +80,70 @@
             margin: 20px 0;
             border: 2px solid #4db8ff;
         }
+        
+        /* Animation Fragment Styles */
+        .reveal .fragment.zoom-in {
+            animation: zoomIn 0.6s ease;
+        }
+        
+        .reveal .fragment.grow {
+            animation: grow 0.8s ease;
+        }
+        
+        .reveal .fragment.highlight-blue {
+            animation: highlightBlue 0.6s ease;
+            background: rgba(77, 184, 255, 0.3);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .reveal .fragment.highlight-green {
+            animation: highlightGreen 0.6s ease;
+            background: rgba(127, 255, 0, 0.2);
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes grow {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1.2);
+            }
+        }
+        
+        @keyframes highlightBlue {
+            from {
+                background: rgba(77, 184, 255, 0);
+            }
+            to {
+                background: rgba(77, 184, 255, 0.3);
+            }
+        }
+        
+        @keyframes highlightGreen {
+            from {
+                background: rgba(127, 255, 0, 0);
+            }
+            to {
+                background: rgba(127, 255, 0, 0.2);
+            }
+        }
     </style>
 </head>
 <body>
@@ -102,7 +166,38 @@
                 </aside>
             </section>
 
-            <!-- SLIDE 2: Executive Summary (Markdown) -->
+            <!-- SLIDE 2: Contact Information (Added) -->
+            <section style="text-align: center;">
+                <h2 style="color: #4db8ff; font-size: 2.5em; margin-bottom: 60px;">Contact Information</h2>
+                
+                <div style="background: rgba(77, 184, 255, 0.2); padding: 50px; border-radius: 12px; border: 3px solid #4db8ff; margin: 40px auto; max-width: 600px; box-shadow: 0 0 30px rgba(77, 184, 255, 0.3);">
+                    <p style="font-size: 0.9em; color: #cbd5e1; margin-bottom: 15px;">Technical Consultant & Presenter</p>
+                    
+                    <p style="font-size: 1.3em; color: #ffffff; margin: 30px 0;">
+                        <strong>Email Address:</strong>
+                    </p>
+                    
+                    <p style="font-size: 1.8em; color: #4db8ff; font-weight: bold; font-family: monospace; letter-spacing: 0.5px; margin: 20px 0; word-break: break-all;">
+                        24f3002629@ds.study.iitm.ac.in
+                    </p>
+                    
+                    <p style="font-size: 0.85em; color: #cbd5e1; margin-top: 20px;">
+                        IIT Madras - Data Science Program
+                    </p>
+                </div>
+                
+                <p style="margin-top: 50px; font-size: 0.9em; color: #94a3b8;">
+                    📧 Please feel free to reach out for any questions or clarifications
+                </p>
+                
+                <aside class="notes">
+                    This is the contact information for the presenter. The email is 24f3002629@ds.study.iitm.ac.in. 
+                    This slide is intentionally placed early in the presentation to ensure all stakeholders have 
+                    the correct contact information for follow-up discussions.
+                </aside>
+            </section>
+
+            <!-- SLIDE 3: Executive Summary (Markdown) -->
             <section data-markdown>
                 <textarea data-template>
                     ## Executive Summary
@@ -126,23 +221,23 @@
                 </textarea>
             </section>
 
-            <!-- SLIDE 3: Financial Performance Overview -->
+            <!-- SLIDE 4: Financial Performance Overview -->
             <section>
                 <h2>Financial Performance Overview</h2>
                 <p style="margin-top: 30px;">Key metrics for Q4 2024:</p>
                 
                 <div style="margin-top: 40px;">
-                    <div class="metric-card fragment fade-in">
+                    <div class="metric-card fragment fade-in-then-scale">
                         <div class="metric-value">$2.8B</div>
                         <div class="metric-label">Revenue</div>
                     </div>
                     
-                    <div class="metric-card fragment fade-in">
+                    <div class="metric-card fragment fade-in-then-scale">
                         <div class="metric-value">$520M</div>
                         <div class="metric-label">Operating Income</div>
                     </div>
                     
-                    <div class="metric-card fragment fade-in">
+                    <div class="metric-card fragment fade-in-then-scale">
                         <div class="metric-value">18.6%</div>
                         <div class="metric-label">Net Margin</div>
                     </div>
@@ -243,12 +338,12 @@ print(f"Operating Margin: {operating_margin:.1f}%")
                 </aside>
             </section>
 
-            <!-- SLIDE 7: Code Sample - SQL Query -->
+            <!-- SLIDE 8: Code Sample - SQL Query -->
             <section>
                 <h2>Database Query: Revenue Trends</h2>
                 <p style="font-size: 0.85em; margin-bottom: 20px;">SQL query for historical revenue analysis:</p>
                 
-                <pre><code class="language-sql" data-trim data-line-numbers="1-12">
+                <pre class="fragment fade-in"><code class="language-sql" data-trim data-line-numbers="1-12">
 SELECT 
     DATE_TRUNC('quarter', transaction_date) AS quarter,
     SUM(transaction_amount) AS total_revenue,
@@ -268,19 +363,19 @@ LIMIT 8;
                 </aside>
             </section>
 
-            <!-- SLIDE 8: Growth Trends (Multiple animated elements) -->
+            <!-- SLIDE 9: Growth Trends (Multiple animated elements) -->
             <section>
                 <h2>Year-over-Year Growth Analysis</h2>
                 
                 <div style="margin-top: 40px;">
-                    <p class="fragment fade-right"><span style="color: #4db8ff; font-weight: bold;">Q1 Growth:</span> 12.3%</p>
-                    <p class="fragment fade-right"><span style="color: #4db8ff; font-weight: bold;">Q2 Growth:</span> 15.8%</p>
-                    <p class="fragment fade-right"><span style="color: #4db8ff; font-weight: bold;">Q3 Growth:</span> 19.2%</p>
-                    <p class="fragment fade-right"><span style="color: #7fff00; font-weight: bold; font-size: 1.2em;">Q4 Growth:</span> <span style="color: #7fff00; font-size: 1.3em;">23.5% ✓</span></p>
+                    <p class="fragment zoom-in"><span style="color: #4db8ff; font-weight: bold;">Q1 Growth:</span> <span class="fragment highlight-blue">12.3%</span></p>
+                    <p class="fragment zoom-in"><span style="color: #4db8ff; font-weight: bold;">Q2 Growth:</span> <span class="fragment highlight-blue">15.8%</span></p>
+                    <p class="fragment zoom-in"><span style="color: #4db8ff; font-weight: bold;">Q3 Growth:</span> <span class="fragment highlight-blue">19.2%</span></p>
+                    <p class="fragment zoom-in"><span style="color: #7fff00; font-weight: bold; font-size: 1.2em;">Q4 Growth:</span> <span style="color: #7fff00; font-size: 1.3em; font-weight: bold;" class="fragment grow">23.5% ✓</span></p>
                 </div>
                 
-                <div class="fragment fade-in" style="margin-top: 40px; background: rgba(127, 255, 0, 0.1); padding: 20px; border-radius: 8px;">
-                    <p><strong>Key Insight:</strong> Accelerating growth trajectory indicates strengthening market position and product-market fit</p>
+                <div class="fragment fade-in" style="margin-top: 40px; background: rgba(127, 255, 0, 0.1); padding: 20px; border-radius: 8px; border-left: 4px solid #7fff00;">
+                    <p class="fragment fade-in"><strong>Key Insight:</strong> Accelerating growth trajectory indicates strengthening market position and product-market fit</p>
                 </div>
                 
                 <aside class="notes">
@@ -290,22 +385,22 @@ LIMIT 8;
                 </aside>
             </section>
 
-            <!-- SLIDE 9: Mathematical Formulas - Investment Analysis -->
+            <!-- SLIDE 10: Mathematical Formulas - Investment Analysis -->
             <section>
                 <h2>Return on Investment Analysis</h2>
                 
-                <div class="financial-formula">
+                <div class="financial-formula fragment fade-in-then-semi-out">
                     <h4>ROI Calculation:</h4>
                     $$\text{ROI} = \frac{\text{Net Profit}}{\text{Initial Investment}} \times 100\%$$
                     
-                    $$\text{ROI} = \frac{\$520M}{\$2800M} \times 100\% = 18.6\%$$
+                    <p class="fragment highlight-green">$$\text{ROI} = \frac{\$520M}{\$2800M} \times 100\% = 18.6\%$$</p>
                 </div>
                 
-                <div class="financial-formula" style="margin-top: 30px;">
+                <div class="financial-formula fragment fade-in-then-semi-out" style="margin-top: 30px;">
                     <h4>Annualized Growth Rate:</h4>
                     $$\text{CAGR} = \left(\frac{\text{Ending Value}}{\text{Beginning Value}}\right)^{\frac{1}{n}} - 1$$
                     
-                    $$\text{CAGR} = \left(\frac{\$2.8B}{\$2.1B}\right)^{\frac{1}{4}} - 1 = 7.4\%$$
+                    <p class="fragment highlight-green">$$\text{CAGR} = \left(\frac{\$2.8B}{\$2.1B}\right)^{\frac{1}{4}} - 1 = 7.4\%$$</p>
                 </div>
                 
                 <aside class="notes">
